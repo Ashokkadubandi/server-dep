@@ -6,6 +6,7 @@ const sqlite3 = require("sqlite3");
 
 const dbPath = path.join(__dirname, "./myData.db");
 let db = null;
+const PORT = process.env.PORT || 5000;
 
 const initializeDbServer = async () => {
   try {
@@ -13,7 +14,7 @@ const initializeDbServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(5000, () => {
+    app.listen(PORT, () => {
       console.log("Server running at https://localhost:5000");
     });
   } catch (e) {
@@ -31,3 +32,5 @@ app.get("/", async (req, res) => {
 });
 
 console.log("running");
+
+module.exports = app;
