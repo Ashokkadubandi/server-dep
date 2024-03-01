@@ -8,6 +8,12 @@ const dbPath = path.join(__dirname, "./myData.db");
 let db = null;
 const PORT = process.env.PORT || 5000;
 
+const data = [
+  "Ashok",
+  "Software Developer",
+  "Skills: HTML,CSS,Java script,SQL,Node js,python,C++",
+];
+
 // const initializeDbServer = async () => {
 //   try {
 //     db = await open({
@@ -26,7 +32,7 @@ const PORT = process.env.PORT || 5000;
 // initializeDbServer();
 
 app.get("/", async (req, res) => {
-  res.send("Hello it is working");
+  res.send(data);
 });
 
 console.log("running");
