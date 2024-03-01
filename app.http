@@ -1,0 +1,4 @@
+GET https://server-dep.vercel.app/
+###
+
+GET https://server-dep.vercel.app/data/ashok

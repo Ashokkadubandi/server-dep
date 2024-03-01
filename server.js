@@ -25,10 +25,16 @@ const initializeDbServer = async () => {
 
 initializeDbServer();
 
-app.get("/", async (req, res) => {
+app.get("/data", async (req, res) => {
   const query = "select * from Sample";
   const list = await db.all(query);
   res.send(list);
+});
+
+app.get("/data/ashok", async (req, res) => {
+  const query = "select * from Sample where id = 1";
+  const li = await db.all(query);
+  res.send(li);
 });
 
 console.log("running");
