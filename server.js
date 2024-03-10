@@ -3,10 +3,13 @@ const path = require("path");
 const app = express();
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
+const cors = require("cors");
 
 const dbPath = path.join(__dirname, "./myData.db");
 let db = null;
 const PORT = process.env.PORT || 5000;
+
+app.use(cors());
 
 const initializeDbServer = async () => {
   try {
