@@ -2,3 +2,12 @@ GET https://server-dep.vercel.app/
 ###
 
 GET https://server-dep.vercel.app/data/ashok
+###
+
+POST https://server-dep.vercel.app/posting/
+Content-Type: application/json
+
+{
+    "name":"Pranav",
+    "pass":"pran@2024"
+}

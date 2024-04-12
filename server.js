@@ -40,6 +40,14 @@ app.get("/data/ashok", async (req, res) => {
   res.send(li);
 });
 
+app.post("/posting/", async (req, res) => {
+  const { name, pass } = req.body;
+  const query = `insert into user(name,pass)
+    values(${name}, ${pass}`;
+  await db.run(query);
+  res.send("Data Successfully Updated");
+});
+
 console.log("running");
 
 module.exports = app;
