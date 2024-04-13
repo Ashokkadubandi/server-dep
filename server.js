@@ -28,6 +28,8 @@ const initializeDbServer = async () => {
 
 initializeDbServer();
 
+app.use(express.json());
+
 app.get("/data", async (req, res) => {
   const query = "select * from Sample";
   const list = await db.all(query);
@@ -40,12 +42,20 @@ app.get("/data/ashok", async (req, res) => {
   res.send(li);
 });
 
-app.post("/posting/", async (req, res) => {
-  const { name, pass } = req.body;
-  const query = `insert into user(name,pass)
-    values(${name}, ${pass}`;
-  await db.run(query);
-  res.send("Data Successfully Updated");
+app.post("/posting/", async (request, res) => {
+  const { name, pass } = request.body;
+  const query = `INSERT INTO USER (name,pass)
+  VALUES(
+      "${name}","${pass}"
+  )`;
+  const Data = await db.run(query);
+  res.send("success");
+});
+
+app.get("/user/data", async (req, res) => {
+  const query = "select * from user";
+  const data = await db.all(query);
+  res.send(data);
 });
 
 console.log("running");

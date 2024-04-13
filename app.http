@@ -4,10 +4,13 @@ GET https://server-dep.vercel.app/
 GET https://server-dep.vercel.app/data/ashok
 ###
 
-POST https://server-dep.vercel.app/posting/
+POST http://localhost:5000/posting/
 Content-Type: application/json
 
 {
-    "name":"Pranav",
-    "pass":"pran@2024"
+    "name":"Tulasi",
+    "pass":"rocktulasi@2021"
 }
+###
+
+GET http://localhost:5000/user/data
